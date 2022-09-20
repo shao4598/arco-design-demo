@@ -16,17 +16,18 @@
       </a-menu>
     </a-layout-header>
     <a-layout-content>
-      <router-view></router-view>
+      <router-view>
+      </router-view>
     </a-layout-content>
   </a-layout>
 </template>
 
-<script setup>
-import { useRouter, useRoute } from 'vue-router'
+<script setup lang="ts">
+import { useRouter } from 'vue-router'
 
 const router = useRouter()
 
-function onMenuClick(key){
+function onMenuClick (key: string) {
   router.push(key)
 }
 </script>
