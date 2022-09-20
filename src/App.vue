@@ -9,9 +9,10 @@
 <template>
   <a-layout style="height: 400px;">
     <a-layout-header>
-      <a-menu mode="horizontal" :default-selected-keys="['/']" @menu-item-click="onMenuClick">
+      <a-menu mode="horizontal" @menu-item-click="onMenuClick">
         <a-menu-item key="/">Go to Home</a-menu-item>
         <a-menu-item key="/expand-table">Expand Table</a-menu-item>
+        <a-menu-item key="/upload-file">Upload File</a-menu-item>
       </a-menu>
     </a-layout-header>
     <a-layout-content>
@@ -22,9 +23,10 @@
 
 <script setup>
 import { useRouter, useRoute } from 'vue-router'
+
 const router = useRouter()
+
 function onMenuClick(key){
-  console.log(key,router)
   router.push(key)
 }
 </script>
