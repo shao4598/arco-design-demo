@@ -9,23 +9,23 @@
 module.exports = {
   env: {
     browser: true,
-    es2021: true
+    es2021: true,
   },
   extends: [
-    'plugin:vue/vue3-essential',
-    'standard-with-typescript'
+    'eslint-config-standard',
+    'plugin:eslint-plugin-prettier/recommended',
   ],
-  overrides: [
-  ],
+  overrides: [],
   parser: 'vue-eslint-parser',
   parserOptions: {
     parser: '@typescript-eslint/parser',
     ecmaVersion: 'latest',
-    sourceType: 'module'
+    sourceType: 'module',
   },
   plugins: [
-    'vue'
+    'eslint-plugin-vue',
+    'eslint-plugin-html',
+    '@typescript-eslint/eslint-plugin',
   ],
-  rules: {
-  }
-}
+  rules: {},
+};
