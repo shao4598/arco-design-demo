@@ -2,39 +2,29 @@
  * @Author: chase shao4598@outlook.com
  * @Date: 2022-09-12
  * @LastEditors: chase shao4598@outlook.com
- * @LastEditTime: 2022-09-12
+ * @LastEditTime: 2022-09-20
  * @FilePath: /arco-design-demo/src/App.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
-<script setup>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
-  <a-button type="primary">button</a-button>
+  <a-layout style="height: 400px;">
+    <a-layout-header>
+      <a-menu mode="horizontal" :default-selected-keys="['/']" @menu-item-click="onMenuClick">
+        <a-menu-item key="/">Go to Home</a-menu-item>
+        <a-menu-item key="/expand-table">Expand Table</a-menu-item>
+      </a-menu>
+    </a-layout-header>
+    <a-layout-content>
+      <router-view></router-view>
+    </a-layout-content>
+  </a-layout>
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
+<script setup>
+import { useRouter, useRoute } from 'vue-router'
+const router = useRouter()
+function onMenuClick(key){
+  console.log(key,router)
+  router.push(key)
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>
+</script>
